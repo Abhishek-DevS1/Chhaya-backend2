@@ -20,8 +20,8 @@ pipeline {
                           branches: [[name: '*/master']], 
                           doGenerateSubmoduleConfigurations: false, 
                           extensions: [], 
-                          userRemoteConfigs: [[url: 'https://github.com/Abhishek-DevS1/chayya-backend.git', 
-                                                credentialsId: 'backend']]])
+                          userRemoteConfigs: [[url: 'https://github.com/Abhishek-DevS1/Chayya-backend2.git', 
+                                                credentialsId: 'bakend']]])
             }
         }
 
