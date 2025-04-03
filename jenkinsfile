@@ -14,12 +14,13 @@ pipeline {
             }
         }
 
-        stage('Checkout') {
-            steps {
-                git branch: 'master', url: 'https://github.com/Abhishek-DevS1/chayya-backend.git'
-                sh 'ls -l Chhaya-backend/scripts/'
-            }
-        }
+       checkout([$class: 'GitSCM', 
+          branches: [[name: '*/master']], 
+          doGenerateSubmoduleConfigurations: false, 
+          extensions: [], 
+          userRemoteConfigs: [[url: 'https://github.com/Abhishek-DevS1/chayya-backend.git', 
+                                credentialsId: 'backend']]])
+
 
         stage('Setup Virtual Environment, Install Dependencies') {
             steps {
