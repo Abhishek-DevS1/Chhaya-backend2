@@ -16,7 +16,7 @@ pipeline {
 
      stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/Abhishek-DevS1/chayya-backend.git'
+                git branch: 'master', url: 'https://github.com/Abhishek-DevS1/Chayya-backend.git'
                 sh 'ls -l Chhaya-backend/scripts/'
             }
         }
