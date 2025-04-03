@@ -14,12 +14,16 @@ pipeline {
             }
         }
 
-       checkout([$class: 'GitSCM', 
-          branches: [[name: '*/master']], 
-          doGenerateSubmoduleConfigurations: false, 
-          extensions: [], 
-          userRemoteConfigs: [[url: 'https://github.com/Abhishek-DevS1/chayya-backend.git', 
-                                credentialsId: 'backend']]])
+      stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', 
+                          branches: [[name: '*/master']], 
+                          doGenerateSubmoduleConfigurations: false, 
+                          extensions: [], 
+                          userRemoteConfigs: [[url: 'https://github.com/Abhishek-DevS1/chayya-backend.git', 
+                                                credentialsId: 'backend']]])
+            }
+        }
 
 
         stage('Setup Virtual Environment, Install Dependencies') {
