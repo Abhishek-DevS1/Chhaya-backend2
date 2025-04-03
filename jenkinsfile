@@ -14,14 +14,10 @@ pipeline {
             }
         }
 
-      stage('Checkout') {
+     stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', 
-                          branches: [[name: '*/master']], 
-                          doGenerateSubmoduleConfigurations: false, 
-                          extensions: [], 
-                          userRemoteConfigs: [[url: 'https://github.com/Abhishek-DevS1/Chayya-backend2.git', 
-                                                credentialsId: 'bakend']]])
+                git branch: 'master', url: 'https://github.com/Abhishek-DevS1/chayya-backend.git'
+                sh 'ls -l Chhaya-backend/scripts/'
             }
         }
 
