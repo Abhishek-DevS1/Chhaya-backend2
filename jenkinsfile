@@ -38,7 +38,7 @@ pipeline {
         stage('Migration') {
             steps {
                 sh '''
-                chmod +x Chhaya-backend/scripts/run_migration.sh
+                chmod +x Chhaya-backend2/scripts/run_migration.sh
                 ./Chhaya-backend/scripts/run_migration.sh
                 '''
             }
@@ -47,7 +47,7 @@ pipeline {
         stage('Setup Gunicorn') {
             steps {
                 sh '''
-                chmod +x Chhaya-backend/scripts/gunicorn.sh
+                chmod +x Chhaya-backend2/scripts/gunicorn.sh
                 ./Chhaya-backend/scripts/gunicorn.sh
                 '''
             }
