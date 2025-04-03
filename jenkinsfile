@@ -29,8 +29,8 @@ pipeline {
         stage('Setup Virtual Environment, Install Dependencies') {
             steps {
                 sh '''
-                chmod +x Chhaya-backend2/scripts/setup_virtualenv.sh
-                ./Chhaya-backend2/scripts/setup_virtualenv.sh
+                chmod +x scripts/setup_virtualenv.sh
+                ./scripts/setup_virtualenv.sh
                 '''
 
             }
