@@ -1,43 +1,51 @@
+
 pipeline {
-    agent { label 'coderize2' }
+    agent any 
+
     environment {
-        WORKSPACE_DIR = "${WORKSPACE}/Chhaya_new_backend/scripts"
+        WORKSPACE_DIR = "/home/abhishek/CICDpro/Chhaya-backend"
     }
+
     stages {
-        stage ('Checkout') {
+        stage('Cleanup Workspace') {
             steps {
-                git branch: 'chhaya_jenkins', credentialsId: 'new-token1', url: 'https://gitlab.com/coderizers/app_view/chhaya_foundation.git'
-                sh 'ls -l Chhaya_new_backend/scripts/'
+                sh 'rm -rf .git || true'
+                sh 'rm -rf * || true'
             }
         }
 
-        stage ('Setup Virtual Environment, Install Dependencies') {
+        stage('Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/Abhishek-DevS1/chayya-backend.git'
+                sh 'ls -l Chhaya-backend/scripts/'
+            }
+        }
+
+        stage('Setup Virtual Environment, Install Dependencies') {
             steps {
                 sh '''
-                chmod +x Chhaya_new_backend/scripts/setup_virtualenv.sh
-                ./Chhaya_new_backend/scripts/setup_virtualenv.sh
+                chmod +x Chhaya-backend/scripts/setup_virtualenv.sh
+                ./Chhaya-backend/scripts/setup_virtualenv.sh
                 '''
             }
         }
 
-        stage ('migration') {
+        stage('Migration') {
             steps {
                 sh '''
-                chmod +x Chhaya_new_backend/scripts/run_migration.sh
-                ./Chhaya_new_backend/scripts/run_migration.sh
+                chmod +x Chhaya-backend/scripts/run_migration.sh
+                ./Chhaya-backend/scripts/run_migration.sh
                 '''
             }
         }
 
-        stage ('Setup Gunicorn') {
+        stage('Setup Gunicorn') {
             steps {
                 sh '''
-                chmod +x Chhaya_new_backend/scripts/gunicorn.sh
-                ./Chhaya_new_backend/scripts/gunicorn.sh
+                chmod +x Chhaya-backend/scripts/gunicorn.sh
+                ./Chhaya-backend/scripts/gunicorn.sh
                 '''
             }
         }
     }
 }
-
-
