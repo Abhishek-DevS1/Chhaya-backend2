@@ -1,6 +1,6 @@
 #!/bin/bash
 
-project_directory="/home/administrator/backend_project/workspace/chhaya-backend"
+project_directory="/home/abhishek/CICDpro/Chhaya-backend"
 
 echo "Changing directory to project workspace directory"
 cd $project_directory || { echo "Failed to change directory to $project_directory"; exit 1; }
@@ -27,7 +27,7 @@ else
 fi
 
 echo "Installing Python dependencies!"
-pip install -r Chhaya_new_backend/requirement.txt || { echo "Failed to install dependencies"; exit 1; }
+pip install -r Chhaya-backend/requirement.txt || { echo "Failed to install dependencies"; exit 1; }
 
 echo "Deactivating the virtual environment"
 deactivate
