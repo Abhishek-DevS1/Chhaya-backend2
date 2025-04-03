@@ -1,6 +1,6 @@
 #!/bin/bash
 
-project_directory="/home/administrator/backend_project/workspace/chhaya-backend"
+project_directory="/home/abhishek/CICDpro/Chhaya-backend"
 
 echo "Change directory to python project directory"
 
@@ -17,7 +17,7 @@ else
 fi
 
 #echo "Processing for makemigrations"
-cd $project_directory/Chhaya_new_backend
+cd $project_directory/Chhaya-backend
 #python3 manage.py makemigrations --noinput
 
 echo "Processing for migrations"
