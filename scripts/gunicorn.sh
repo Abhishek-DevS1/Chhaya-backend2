@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define project directory and log directory paths
-project_directory="/home/administrator/backend_project/workspace/chhaya-backend"
-log_directory="/var/log/chhaya"
+project_directory="/home/abhishek/CICDpro/Chhaya-backend"
+log_directory="/var/log/Chhaya"
 
 echo "Changing directory to project workspace directory"
 cd $project_directory || { echo "Failed to change directory to $project_directory"; exit 1; }
@@ -11,7 +11,7 @@ echo "Validate the present working directory"
 pwd
 
 # Check if gunicorn.service file exists in the correct location
-service_file="$project_directory/Chhaya_new_backend/scripts/chhaya_new.service"
+service_file="$project_directory/scripts/chhaya_new.service"
 
 if [ -f "$service_file" ]; then
     echo "gunicorn.service found. Copying the service file..."
