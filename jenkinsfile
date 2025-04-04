@@ -27,14 +27,16 @@ pipeline {
 
         stage('Setup Virtual Environment, Install Dependencies') {
             steps {
+                // Adjusting sudo usage here
                 sh '''
-                
-                sudo chmod +x /home/abhishek/CICDpro/Chhaya-backend
+                echo "your_password" | sudo -S chmod +x /home/abhishek/CICDpro/Chhaya-backend
                 ./scripts/setup_virtualenv.sh
                 '''
-
+                // or if you have sudo access already, you can remove sudo entirely:
+                // sh './scripts/setup_virtualenv.sh'
             }
         }
+
 
         stage('Migration') {
             steps {
