@@ -21,8 +21,9 @@ djangorestframework-gis==1.1
 djangorestframework-simplejwt==5.3.1
 drf-yasg==1.21.7
 filelock==3.16.0
-fiona @ file:///C:/Users/sanke/Desktop/Chhaya_FullStack/Chhaya_new_backend/GDAL_Files/fiona-1.9.5-cp311-cp311-win_amd64.whl#sha256=2580489fb96d4fbe0ddce5de7c842b6af77da1eaacfc8a00cc59923e6cbff204
-GDAL @ file:///C:/Users/sanke/Desktop/Chhaya_FullStack/Chhaya_new_backend/GDAL_Files/GDAL-3.8.4-cp311-cp311-win_amd64.whl#sha256=13115dae539ab85b7b4b5bf8b7eb13abf2026d95313cec0837bff034a8c25c58
+#fiona @ file:///C:/Users/sanke/Desktop/Chhaya_FullStack/Chhaya_new_backend/GDAL_Files/fiona-1.9.5-cp311-cp311-win_amd64.whl#sha256=2580489fb96d4fbe0ddce5de7c842b6af77da1eaacfc8a00cc59923e6cbff204
+#GDAL @ file:///C:/Users/sanke/Desktop/Chhaya_FullStack/Chhaya_new_backend/GDAL_Files/GDAL-3.8.4-cp311-cp311-win_amd64.whl#sha256=13115dae539ab85b7b4b5bf8b7eb13abf2026d95313cec0837bff034a8c25c58
+GDAL==3.8.4
 geopandas==0.14.4
 git-filter-repo==2.45.0
 idna==3.7
