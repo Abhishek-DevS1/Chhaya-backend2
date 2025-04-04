@@ -29,7 +29,7 @@ pipeline {
             steps {
                 // Adjusting sudo usage here
                 sh '''
-                echo "abhishek" | sudo -S chmod +x /home/abhishek/CICDpro/Chhaya-backend
+                echo "Jenkins2828" | sudo -S chmod +x /home/abhishek/CICDpro/Chhaya-backend
                 ./scripts/setup_virtualenv.sh
                 '''
                 // or if you have sudo access already, you can remove sudo entirely:
