@@ -27,7 +27,7 @@ else
 fi
 
 echo "Installing Python dependencies!"
-pip install -r Chhaya-backend/requirement.txt || { echo "Failed to install dependencies"; exit 1; }
+pip install -r Chhaya-backend/new.txt || { echo "Failed to install dependencies"; exit 1; }
 
 echo "Deactivating the virtual environment"
 deactivate
