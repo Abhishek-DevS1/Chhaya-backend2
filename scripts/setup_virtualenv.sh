@@ -1,9 +1,9 @@
 #!/bin/bash
 
-project_directory="/home/abhishek/CICDpro"
+project_directory="/home/abhishek/CICDpro/Chhaya-backend"
 
 echo "Changing directory to project workspace directory"
-cd $project_directory || { echo "Failed to change directory to $project_directory"; exit 1; }
+cd /home/abhishek/CICDpro/Chhaya-backend || { echo "Failed to change directory to $project_directory"; exit 1; }
 
 echo "Validate the present working directory"
 pwd
