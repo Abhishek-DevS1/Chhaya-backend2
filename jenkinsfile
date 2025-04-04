@@ -6,33 +6,14 @@ pipeline {
     }
 
     stages {
-        stage('Create Workspace') {
-            steps {
-                script {
-                    if (!fileExists(env.WORKSPACE_DIR)) {
-                        sh "mkdir -p ${env.WORKSPACE_DIR}"
-                    }
-                }
-            }
-        }
-
         stage('Cleanup Workspace') {
             steps {
-                script {
-                    def cleanupResult = sh(script: 'rm -rf .git', returnStatus: true)
-                    if (cleanupResult != 0) {
-                        error "Failed to clean up .git directory."
-                    }
-
-                    cleanupResult = sh(script: 'rm -rf *', returnStatus: true)
-                    if (cleanupResult != 0) {
-                        error "Failed to clean up workspace."
-                    }
-                }
+                sh 'rm -rf .git || true'
+                sh 'rm -rf * || true'
             }
         }
 
-        stage('Checkout') {
+     stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM', 
                           branches: [[name: '*/master']], 
@@ -43,19 +24,14 @@ pipeline {
             }
         }
 
+
         stage('Setup Virtual Environment, Install Dependencies') {
             steps {
-                script {
-                    def venvDir = "${env.WORKSPACE_DIR}/venv"
-                    if (!fileExists(venvDir)) {
-                        sh '''
-                        chmod +x scripts/setup_virtualenv.sh
-                        ./scripts/setup_virtualenv.sh
-                        '''
-                    } else {
-                        echo "Virtual environment already exists, skipping setup."
-                    }
-                }
+                sh '''
+                chmod +x scripts/setup_virtualenv.sh
+                ./scripts/setup_virtualenv.sh
+                '''
+
             }
         }
 
@@ -77,19 +53,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            echo "Cleaning up..."
-            sh 'rm -rf ${env.WORKSPACE_DIR}/venv || true'
-        }
-
-        success {
-            echo "Pipeline completed successfully!"
-        }
-
-        failure {
-            echo "Pipeline failed. Please check the logs."
-        }
-    }
-}
+} 
