@@ -2,7 +2,7 @@
 
 # Define project directory and log directory paths
 project_directory="/home/abhishek/CICDpro/Chhaya-backend"
-log_directory="/var/log/Chhaya"
+log_directory="/var/log/chhaya"
 
 echo "Changing directory to project workspace directory"
 cd $project_directory || { echo "Failed to change directory to $project_directory"; exit 1; }
