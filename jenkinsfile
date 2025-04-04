@@ -28,7 +28,8 @@ pipeline {
         stage('Setup Virtual Environment, Install Dependencies') {
             steps {
                 sh '''
-                chmod +x scripts/setup_virtualenv.sh
+                
+                sudo chmod +x /home/abhishek/CICDpro/Chhaya-backend
                 ./scripts/setup_virtualenv.sh
                 '''
 
