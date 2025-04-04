@@ -25,24 +25,16 @@ pipeline {
         }
 
 
-       stage('Setup Permissions') {
-            steps {
-                // Set permissions to ensure the Jenkins user can access the necessary files
-                sh '''
-                sudo chown -R jenkins:jenkins ${WORKSPACE_DIR}
-                sudo chmod -R 755 ${WORKSPACE_DIR}
-                '''
-            }
-        }
-
         stage('Setup Virtual Environment, Install Dependencies') {
             steps {
                 sh '''
                 chmod +x scripts/setup_virtualenv.sh
                 ./scripts/setup_virtualenv.sh
                 '''
+
             }
         }
+
         stage('Migration') {
             steps {
                 sh '''
